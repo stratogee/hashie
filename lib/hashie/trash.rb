@@ -50,7 +50,7 @@ module Hashie
         send("#{property}=", value)
       elsif self.class.transforms.key? property.to_sym
         super property, self.class.transforms[property.to_sym].call(value)
-      elsif property_exists? property
+      else #if property_exists? property
         super
       end
     end
