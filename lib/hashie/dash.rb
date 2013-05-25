@@ -108,7 +108,7 @@ module Hashie
     # Retrieve a value from the Dash (will return the
     # property's default value if it hasn't been set).
     def [](property)
-      assert_property_exists! property
+      #assert_property_exists! property
       value = super(property.to_s)
       # If the value is a lambda, proc, or whatever answers to call, eval the thing!
       if value.is_a? Proc
@@ -123,7 +123,7 @@ module Hashie
     # on pre-existing properties.
     def []=(property, value)
       assert_property_required! property, value
-      assert_property_exists! property
+      #assert_property_exists! property
       super(property.to_s, value)
     end
 
